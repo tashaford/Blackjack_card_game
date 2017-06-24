@@ -4,13 +4,13 @@ package behaviours;
 public enum Suit {
 
     SPADES("spades"),
-    DIAMONDS("diamonds"),
     HEARTS("hearts"),
-    CLUBS("clubs");
+    CLUBS("clubs"),
+    DIAMONDS("diamonds");
 
     private String name;
 
-    Suit (String type){
+    Suit (String name){
         this.name = name;
     }
 

@@ -2,10 +2,11 @@ package behaviours;
 
 
 public enum Rank {
-    ACE(14),
-    KING(13),
-    QUEEN(12),
-    JACK(11),
+
+    ACE(11),
+    KING(10),
+    QUEEN(10),
+    JACK(10),
     TEN(10),
     NINE(9),
     EIGHT(8),
@@ -18,7 +19,7 @@ public enum Rank {
 
     private int value;
 
-    Rank (int value){
+    Rank(int value){
         this.value = value;
     }
 
