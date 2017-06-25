@@ -35,12 +35,17 @@ public class Game {
         System.out.println("Player's hand total is: " + player.getHandTotal());
         TimeUnit.SECONDS.sleep(2);
         quickPlayerWinner(player.getHandTotal());
+        if (player.getHandValue() == 21) {
+            displayWinner(player.getHandTotal(), dealer.getHandTotal());
+        }
+        else {
         System.out.println("\nDealer shows all cards: ");
         dealer.showHand();
         System.out.println("Dealer's hand total is: " + dealer.getHandTotal());
         quickDealerWinner(dealer.getHandTotal());
         TimeUnit.SECONDS.sleep(2);
-        displayWinner(player.getHandTotal(), dealer.getHandTotal());
+        displayWinner(player.getHandTotal(), dealer.getHandTotal());}
+
     }
 
     private void checkTwistOrStick(Choice playerChoice) throws InterruptedException {
@@ -95,10 +100,11 @@ public class Game {
 
     private void displayWinner(int playerHand, int dealerHand) {
         int i = 0;
-        if (playerHand <= 21 && dealerHand <= 21) i = 1;
+        if (playerHand < 21 && dealerHand < 21) i = 1;
         if (playerHand <= 21 && dealerHand > 21) i = 2;
         if (playerHand > 21 && dealerHand <= 21) i = 3;
         if (playerHand > 21 && dealerHand > 21) i = 4;
+        if (playerHand == 21 && dealerHand == 21) i = 5;
         switch (i) {
             case 1:
                 if (playerHand > dealerHand) {
@@ -115,6 +121,8 @@ public class Game {
                 break;
             case 4:
                 System.out.println("\nNo one wins, both dealer and player are bust");
+            case 5:
+                System.out.println("Player automatically won with " + player.getHandValue());
         }
     }
 
